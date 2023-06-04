@@ -1,0 +1,167 @@
+// Start screen & footer background pattern
+.wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+h2{
+    @include georgiaNormalNormal;
+    font-size: 4.4rem;
+    letter-spacing: 0.01rem;
+    line-height: 130%;
+    text-align: left;
+    color: $color-dark-l;
+}
+h3{
+    @include georgiaNormalNormal;
+    font-size: 3.5rem;
+    letter-spacing: 0.2rem;
+    line-height: 130%;
+    text-align: left;
+    color: $color-dark-l;
+}
+h4{
+    @include georgiaNormalNormal;
+    font-size: 2.0rem;
+    letter-spacing: 0.13rem;
+    line-height: 115%;
+    text-align: left;
+    color: $color-dark-l;
+}
+h5{
+    @include georgiaNormalNormal;
+    font-size: 1.5rem;
+    letter-spacing: 0.06rem;
+    line-height: 110%;
+    text-align: left;
+    color: $color-dark-l;
+}
+p.large{
+    @include arialNormalNormal;
+    font-size: 1.5rem;
+    line-height: 160%;
+    text-align: justify;
+    color: $color-dark-xl;
+}
+p.small{
+    @include arialItalicNormal;
+    font-size: 1.2rem;
+    line-height: 150%;
+    text-align: left;
+    color: $color-dark-m;
+}
+// a{
+//     @include arialNormalNormal;
+//     font-size: 15px;
+//     line-height: 160%;
+//     letter-spacing: 0.01rem;
+//     color:$color-dark-s;
+//     height: 24px;
+// }
+
+
+
+//common components
+button.rotated{
+    transform: rotateZ(180deg);
+}
+button.circleButton{
+    @include georgiaNormalNormal;
+    font-size: 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border:none;
+    cursor: pointer;
+
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+@mixin circleButton_normal {
+    background-color: transparent;
+    border: 2px solid $color-primary;
+}
+@mixin circleButton_hover {
+    background-color:$color-primary-light;
+    border-color:$color-primary-light;
+}
+@mixin circleButton_active {
+    background-color:$color-primary;
+    border-color:$color-primary;
+}
+@mixin circleButton_disabled {
+    cursor: default;
+    border-color: $color-dark-s;
+    color: $color-dark-s;
+    background-color: transparent;
+}
+
+
+button.longButton{
+    @include georgiaNormalNormal;
+    width: 187px;
+    height: 52px;
+    border-radius: 26px;
+    font-size: 1.7rem;
+    letter-spacing: 0.06em;
+    cursor: pointer;
+
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+button.primary{
+    width: 261px;
+}
+button.secondary{
+    margin-bottom: 30px;
+}
+@mixin longButton_normalFilled{
+    color: $color-dark-3xl;
+    background-color: $color-primary;
+    border: 2px solid $color-primary;
+}
+@mixin longButton_normalHollow{
+    color: $color-dark-3xl;
+    background-color: transparent;
+    border: 2px solid $color-primary;
+}
+@mixin longButton_hover{
+    background-color:$color-primary-light;
+    border: 2px solid $color-primary-light;
+}
+
+
+//big components
+article.card{
+    display: grid;
+    justify-items: center;
+    align-content: space-between;
+    width: 270px;
+    height: 435px;
+    img{
+        height: 270px;
+        width: 270px;
+    }
+    h4{
+        @include georgiaNormalNormal;
+        font-size: 2rem;
+        line-height: 2.3rem;
+        letter-spacing: 0.06rem;
+        color: $color-dark-l;
+    }
+    button.longButton{
+        @include longButton_normalHollow;
+    }
+    &:hover{
+        box-shadow: 0px 2px 35px 14px rgba(13, 13, 13, 0.04);
+        cursor:pointer;
+    }
+    &:hover>.longButton{
+        @include longButton_hover;
+    }
+}
+

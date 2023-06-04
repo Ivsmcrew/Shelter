@@ -1,0 +1,493 @@
+@import "fonts";
+@import "normalize";
+@import "abstracts";
+@import "components";
+@import "layout-parts";
+
+/**********HEADER*************
+******************************/
+@include header;
+.wrapperHeader{
+    background-color: transparent;
+}
+
+/**********NOT ONLY***********
+******************************/
+.wrapperNotOnly{
+    background-image: radial-gradient(100% 215.42% at 0% 0%, #5B483A 0%, #262425 100%), url("../../../shelter/assets/images/start-screen-background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+}
+section.not-only{
+    position: relative;
+    display: flex;
+    flex: 1;
+    padding: 0px 40px;
+    max-width: 1200px;
+    height: 908px;
+
+    article.content{
+        display: grid;
+        align-content: space-between;
+        height: 322px;
+        max-width: 460px;
+        margin-top: 343px;
+        margin-bottom: 100px;
+        h2{
+            color:$color-light-xl;
+        }
+        p.large{
+            color: $color-dark-s;
+        }
+        button{
+            @include longButton_normalFilled;
+            width: 207px;
+            height: 52px;
+            &:hover{
+                @include longButton_hover;
+            }
+        }
+    }
+    img{
+        width: 698px;
+        height: 728px;
+        margin-left: auto;
+        margin-top: auto;
+    }
+
+    @media screen and (max-width:1130px) {
+        flex-wrap: wrap;
+        height: auto;
+        justify-content: center;
+        padding: 0px 154px;
+        article.content{
+            margin-top: 150px;
+            max-width: 100%;
+            justify-items: center;
+            h2{
+                justify-self: baseline;
+            }
+        }
+        img{
+            width: 569px;
+            height: 593px;
+            margin-right:-124px;
+        }
+    }
+    @media screen and (max-width:767px) {
+        padding: 0px 10px;
+        article.content{
+            margin-bottom: 105px;
+            height: 296px;
+            h2{
+                justify-self: center;
+                text-align: center;
+                font-size: 2.5rem;
+                line-height: 130%;
+                letter-spacing: 0.06em;
+            }
+            p.large{
+                text-align: center;
+            }
+        }
+        img{
+            width: 260px;
+            height: 272px;
+            margin-right:0px;
+        }
+    }
+}
+
+/***********ABOUT*************
+******************************/
+.wrapperAbout{
+    background-color: $color-light-xl;
+}
+section.about{
+    padding: 0px 40px;
+    max-width: 1200px;
+    height: 588px;
+    display: flex;
+    flex: 1;
+    justify-content: space-between;
+    img{
+        width: 300px;
+        height: 408px;
+        margin: 80px 20px 0 175px;
+    }
+    .about{
+        width: 430px;
+        height: 380px;
+        margin-left: auto;
+        margin-right: 175px;
+        margin-top: 94px;
+        display: grid;
+        align-content: space-between;
+        p{
+            color: $color-dark-xl;
+            text-align: left;
+        }
+    }
+
+    @media screen and (max-width:992px) {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        img{
+            order:2;
+            margin: 0px auto 100px auto;
+        }
+        .about{
+            order:1;
+            margin: 80px auto;
+        }
+    }
+
+    @media screen and (max-width:767px) {
+        
+        margin-top: 42px;
+        width: 100%;
+        margin: 0 25px;
+        padding: 0;
+        img{
+            width: 260px;
+            height: 354px;
+            margin: 0px auto 42px auto;
+        }
+        .about{
+            width: 100%;
+            height: 494px;
+            margin: 42px auto;
+            h3{
+                justify-self: center;
+                text-align: center;
+                font-size: 2.5rem;
+                line-height: 130%;
+                letter-spacing: 0.06em;
+            }
+            p{
+                text-align: justify;
+            }
+        }
+        
+    }
+}
+
+/************PETS*************
+******************************/
+.wrapperPets{
+    background-color: $color-light-l;
+}
+section.pets{
+    padding: 0px 40px;
+    width: 1200px;
+    height: 877px;
+    display: grid;
+    justify-items: center;
+    align-content: space-between; 
+
+    h3{
+        margin-top: 80px;
+        text-align: center;
+    }
+
+    .slider{
+        height: 435px;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+
+        button.circleButton{
+            @include circleButton_normal;
+            margin-right: -34px;
+            &:hover{
+                @include circleButton_hover;
+            }
+            &:active{
+                @include circleButton_active
+            }
+        }
+        button.rotated{
+            margin-right: 0;
+            margin-left: -34px;
+        }
+    }
+
+    form{
+        margin-bottom: 100px;
+        button.primary{
+            @include longButton_normalFilled;
+            &:hover{
+                @include longButton_hover;
+            }
+        }
+    }
+    @media screen and (max-width:1130px) {
+        padding: 0px 30px;
+        .slider{
+            .card:nth-child(4) {
+                display: none;
+            }
+        }
+    }
+    @media screen and (max-width:767px) {
+        padding: 0px 10px;
+        width: 300px;
+        height: 791px;
+        justify-content: center;
+        h3{
+            margin-top: 42px;
+            justify-self: center;
+            text-align: center;
+            font-size: 2.5rem;
+            line-height: 130%;
+            letter-spacing: 0.06em;
+        }
+        .slider{
+            height: auto;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            .card{
+                width: 320px;
+                margin-bottom: 20px;
+            }
+            .card:nth-child(3) {
+                display: none;
+            }
+            .card:nth-child(2){
+                order:0;
+            }
+            button.circleButton:nth-child(1){
+                order:1;
+            }
+            button.circleButton:nth-child(5){
+                order:2;
+            }
+        }
+        form{
+            margin-bottom: 42px;
+        }
+    }
+}
+
+/************HELP*************
+******************************/
+.wrapperHelp{
+    background-color: $color-light-xl;
+}
+section.help{
+    padding: 0px 40px;
+    max-width: 1200px;
+    display: flex;
+    flex: 1;
+    .help-content{
+        margin:0 auto;
+        margin-top: 80px;
+        margin-bottom: 45px;
+        width:100%;
+        display: grid;
+        align-content: space-between;
+        justify-items: center;
+        h3{
+            text-align: center;
+            margin-bottom: 60px;
+        }
+        ul.help-list{
+            max-width: 1200px;
+            display:flex;
+            flex-wrap: wrap;
+            gap: 0 119px;
+            justify-content:center;
+            align-content: space-between;
+            li{
+                height: 113px;
+                margin: 0px 0px;
+                margin-bottom: 55px;
+                a{
+                    display: block;
+                    height: 100%;
+                    figure{
+                        height: 100%;
+                        display: grid;
+                        justify-items: center;
+                        align-content: space-between;
+                        h4{
+                            color: $color-dark-l;
+                        }
+                    }
+                    &:hover{
+                        filter:brightness(0.8);
+                    }
+                    transition-property: all;
+                    transition-duration: 0.3s;
+                }
+            }
+            li.petFood{
+                margin-left: 0;
+            }   
+            li.shampoos{
+                margin-right: 0;
+            }
+            @media screen and (max-width:992px) {
+                display: grid;
+                grid-template-columns: repeat(3, 170px);
+                margin: 0 29px;
+                gap: 0 60px;
+            }
+        }
+
+        @media screen and (max-width:767px) {
+            margin-top: 0;
+            margin-bottom: 12px;
+            h3{
+                margin-top: 42px;
+                margin-bottom: 42px;
+                justify-self: center;
+                text-align: center;
+                font-size: 2.5rem;
+                line-height: 130%;
+                letter-spacing: 0.06em;
+            }
+            ul.help-list{
+                margin: 0;
+                grid-template-columns: repeat(2, 130px);
+                gap: 0 30px;
+                li{
+                    height: 87px;
+                    margin-bottom: 30px;
+                    h4{
+                        @include georgiaNormalNormal;
+                        font-size: 1.5rem;
+                        letter-spacing: 0.07rem;
+                        line-height: 110%;
+                        text-align: left;
+                        color: $color-dark-l;
+                    }
+                }
+                img{
+                    height: 50px;
+                }
+            }
+        }
+    }
+    @media screen and (max-width:767px) {
+        padding: 0;
+    }
+}
+
+/*********DONATION************
+******************************/
+.wrapperDonation{
+    background-color: $color-light-l;
+}
+section.donation{
+    padding: 0px 40px;
+    max-width: 1200px;
+    height: 462px;
+    display: flex;
+    flex: 1;
+    img.donationDog{
+        height: 261px;
+        margin-top: 91px;
+        margin-left: 143px;
+    }
+    .donation{
+        width: 380px;
+        height: 282px;
+        margin-left: 30px;
+        margin-top: 80px;
+        display: grid;
+        align-content: space-between;
+        p.name{
+            margin:0;
+            padding:0;
+            @include georgiaNormalNormal;
+            font-size: 15px;
+            line-height: 110%;
+            letter-spacing: 0.06em;
+            color: $color-dark-l;
+        }
+        .card{
+            width:349px;
+            height:43px;
+            border-radius: 9px;
+            background-color: $color-primary;
+            display: flex;
+            align-items: center;
+            justify-content: space-evenly;
+            a{
+                @include georgiaNormalNormal;
+                font-size: 20px;
+                line-height: 110%;
+                letter-spacing: 0.06em;
+                color: $color-dark-l;
+            }
+        }
+    }
+    @media screen and (max-width:1130px) {
+        flex-direction: column;
+        align-items: center;
+        height: auto;
+        img.donationDog{
+            order: 2;
+            margin-left: 0;
+            margin-top: 60px;
+            margin-bottom: 100px;
+        }
+        .donation{
+            order: 1;
+            margin-left: 0;
+           
+        }
+    }
+    @media screen and (max-width:767px) {
+        padding: 0 10px;
+        img.donationDog{
+            width: 260px;
+            height: 135px;
+            margin-top: 42px;
+            margin-bottom: 42px;
+        }
+        .donation{
+            justify-content: center;
+            justify-items: center;
+            width:300px;
+            height: auto;
+            margin-top: 0;
+            h3{
+                margin-top: 42px;
+                margin-bottom: 24px;
+                justify-self: center;
+                text-align: center;
+                font-size: 2.5rem;
+                line-height: 130%;
+                letter-spacing: 0.06em;
+            }
+            p.name{
+                letter-spacing: 0.001rem;
+            }
+            .card{
+                margin-top: 24px;
+                margin-bottom: 20px;
+                width: 280px;
+                a{
+                    @include georgiaNormalNormal;
+                    font-size: 15px;
+                    line-height: 110%;
+                    letter-spacing: 0.1rem;
+                }
+            }
+            p.small{
+                width: 280px;
+                text-align: justify;
+            }
+        }
+    }
+}
+
+/***********Footer************
+******************************/
+@include footer;
+
