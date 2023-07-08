@@ -564,17 +564,17 @@ header a p.shelter {
   color: #FFFFFF;
   margin-left: 4px;
 }
-header .menu {
+header .menu-desktop {
   margin-left: auto;
 }
-header .menu ul.menu-list {
+header .menu-desktop ul.menu-list {
   display: flex;
   align-items: start;
   justify-content: space-between;
   width: 443px;
   height: 27px;
 }
-header .menu ul.menu-list a {
+header .menu-desktop ul.menu-list a {
   font: 400 normal 1.6rem "Arial", sans-serif;
   font-size: 15px;
   line-height: 160%;
@@ -584,21 +584,72 @@ header .menu ul.menu-list a {
   transition-property: color, border-bottom;
   transition-duration: 0.3s, 0.1s;
 }
-header .menu ul.menu-list a:hover {
+header .menu-desktop ul.menu-list a:hover {
   color: #FAFAFA;
 }
-header .menu ul.menu-list a:active {
+header .menu-desktop ul.menu-list a:active {
   border-bottom: 3px solid #F1CDB3;
 }
-header .menu ul.menu-list a.activeMain {
+header .menu-desktop ul.menu-list a.activeMain {
   color: #FAFAFA;
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
 }
-header .menu ul.menu-list a.activePets {
+header .menu-desktop ul.menu-list a.activePets {
   color: #292929;
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
+}
+header .menu-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 320px;
+  background-color: #292929;
+  transform: translate(100%);
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+header .menu-mobile ul.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 243px;
+  height: 327px;
+}
+header .menu-mobile ul.menu-list a {
+  font: 400 normal 1.6rem "Arial", sans-serif;
+  font-size: 28px;
+  line-height: 160%;
+  letter-spacing: 0.01rem;
+  color: #CDCDCD;
+  height: auto;
+  transition-property: color, border-bottom;
+  transition-duration: 0.3s, 0.1s;
+}
+header .menu-mobile ul.menu-list a:hover {
+  color: #FAFAFA;
+}
+header .menu-mobile ul.menu-list a:active {
+  border-bottom: 3px solid #F1CDB3;
+}
+header .menu-mobile ul.menu-list a.activeMain {
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+  cursor: default;
+}
+header .menu-mobile ul.menu-list a.activePets {
+  color: #292929;
+  border-bottom: 3px solid #F1CDB3;
+  cursor: default;
+}
+header .menu-mobile_opened {
+  transform: translate(0%);
 }
 header .burger {
   display: none;
@@ -607,6 +658,11 @@ header .burger {
   align-items: center;
   background-image: url("../../assets/icons/burger.png");
   z-index: 3;
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+header .burger_opened {
+  transform: rotate(90deg);
 }
 @media screen and (max-width: 992px) {
   header {
@@ -617,7 +673,7 @@ header .burger {
   header {
     margin: 0 20px;
   }
-  header .menu {
+  header .menu-desktop {
     display: none;
   }
   header .burger {
