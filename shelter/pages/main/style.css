@@ -564,6 +564,14 @@ header a p.shelter {
   color: #FFFFFF;
   margin-left: 4px;
 }
+header .backLayer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
 header .menu-desktop {
   margin-left: auto;
 }
