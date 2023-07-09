@@ -646,7 +646,7 @@ header .menu-mobile ul.menu-list a.activeMain {
   cursor: default;
 }
 header .menu-mobile ul.menu-list a.activePets {
-  color: #292929;
+  color: #FAFAFA;
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
 }
