@@ -24,20 +24,19 @@ export default class Menu {
             if (event.target == this.burger) {
                 this.menuOpenToggler();
             } else {
-                if (this.burger.classList.contains(`burger_opened`) && event.target != this.menu) {
-                    this.burger.classList.toggle(`burger_opened`);
-                    this.menu.classList.toggle(`menu-mobile_opened`);
-                    document.body.style.overflow = `auto`;
-                    this.backLayerOfElementToggler(this.menu, this.menuBackLayer);
+                if (this.isMenuOpened && event.target != this.menu) {
+                    this.menuOpenToggler();
                 }
             } 
         })
     }
     
     menuOpenToggler() {
+        this.isMenuOpened = !this.isMenuOpened;
+
         this.burger.classList.toggle(`burger_opened`);
     
-        if (this.burger.classList.contains(`burger_opened`)) {
+        if (this.isMenuOpened) {
             document.body.style.overflow = `hidden`;
         } else {
             document.body.style.overflow = `auto`;
@@ -62,6 +61,4 @@ export default class Menu {
 
         return backLayer
     }
-
-
 }

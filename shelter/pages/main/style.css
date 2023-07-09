@@ -640,12 +640,6 @@ header .menu-mobile ul.menu-list a {
   transition-property: color, border-bottom;
   transition-duration: 0.3s, 0.1s;
 }
-header .menu-mobile ul.menu-list a:hover {
-  color: #FAFAFA;
-}
-header .menu-mobile ul.menu-list a:active {
-  border-bottom: 3px solid #F1CDB3;
-}
 header .menu-mobile ul.menu-list a.activeMain {
   color: #FAFAFA;
   border-bottom: 3px solid #F1CDB3;

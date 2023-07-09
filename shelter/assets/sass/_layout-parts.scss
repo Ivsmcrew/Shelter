@@ -114,12 +114,6 @@
                     letter-spacing: 0.01rem;
                     color:$color-dark-s;
                     height: auto;
-                    &:hover{
-                        color:$color-light-s;
-                    }
-                    &:active{
-                        border-bottom: 3px solid $color-primary;
-                    }
                     transition-property: color, border-bottom;
                     transition-duration: 0.3s, 0.1s;
                 }
