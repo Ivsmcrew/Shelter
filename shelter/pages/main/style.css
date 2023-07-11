@@ -517,6 +517,84 @@ article.card:hover > .longButton {
   border: 2px solid #FDDCC4;
 }
 
+.modal-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(41, 41, 41, 0.6);
+  z-index: 222;
+}
+
+.modal-container {
+  width: 682px;
+}
+.modal-container .circleButton {
+  background-color: transparent;
+  border: 2px solid #F1CDB3;
+  margin-left: auto;
+}
+.modal-container .circleButton:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+.modal-container .circleButton:active {
+  background-color: #F1CDB3;
+  border-color: #F1CDB3;
+}
+.modal-container .modalWindow {
+  width: 630px;
+  border-radius: 0.9rem;
+  background-color: #FAFAFA;
+  display: flex;
+}
+.modal-container .modalWindow .modalImage {
+  width: 350px;
+  height: 350px;
+  border-radius: 0.9rem;
+}
+.modal-container .modalWindow .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 9px 37px 11px;
+}
+.modal-container .modalWindow .content .description {
+  font-size: 1.3rem;
+  letter-spacing: 0.78px;
+}
+.modal-container .modalWindow .content .parameters {
+  padding-left: 2rem;
+  list-style-type: disc;
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 767px) {
+  .modal-container {
+    width: 270px;
+  }
+  .modal-container .circleButton:hover {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .modal-container .modalWindow {
+    width: 240px;
+    height: 341px;
+  }
+  .modal-container .modalWindow .modalImage {
+    display: none;
+  }
+  .modal-container .modalWindow .content {
+    padding: 9px 9px 9px 9px;
+  }
+  .modal-container .modalWindow .content .name, .modal-container .modalWindow .content .typeAndBreed {
+    align-self: center;
+  }
+}
+
 /**********HEADER*************
 ******************************/
 /***********Footer************

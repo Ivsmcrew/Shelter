@@ -154,3 +154,87 @@ article.card{
     }
 }
 
+
+.modal-wrapper{
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(41, 41, 41, 0.60);
+    z-index: 222;
+}
+.modal-container{
+    width: 682px;
+    
+    .circleButton{
+        @include circleButton_normal;
+        margin-left: auto;
+
+        &:hover{
+            @include circleButton_hover;
+        }
+        &:active{
+            @include circleButton_active;
+        }
+    }
+
+    .modalWindow{
+        width: 630px;
+        border-radius: 0.9rem;
+        background-color: $color-light-s;
+        display: flex;
+
+        .modalImage{
+            width: 350px;
+            height: 350px;
+            border-radius: 0.9rem;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 9px 37px 11px;
+
+            .description{
+                font-size: 1.3rem;
+                letter-spacing: 0.78px;
+            }
+            .parameters{
+                padding-left: 2rem;
+                list-style-type: disc;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 270px;
+
+        .circleButton{
+            &:hover{
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;  
+            }
+        }
+
+        .modalWindow{
+            width: 240px;
+            height: 341px;
+
+            .modalImage{
+                display: none;
+            }
+            .content{
+                padding: 9px 9px 9px 9px;
+                .name, .typeAndBreed{
+                    align-self: center;
+                }
+                
+            }
+        }
+    }
+}
