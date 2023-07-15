@@ -561,7 +561,10 @@ article.card:hover > .longButton {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  padding: 10px 9px 37px 11px;
+  padding: 10px 9px 15px 11px;
+}
+.modal-container .modalWindow .content .typeAndBreed {
+  font-size: 1.8rem;
 }
 .modal-container .modalWindow .content .description {
   font-size: 1.3rem;

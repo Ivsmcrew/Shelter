@@ -197,8 +197,11 @@ article.card{
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-            padding: 10px 9px 37px 11px;
-
+            padding: 10px 9px 15px 11px;
+            
+            .typeAndBreed{
+                font-size: 1.8rem;
+            }
             .description{
                 font-size: 1.3rem;
                 letter-spacing: 0.78px;

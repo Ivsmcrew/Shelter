@@ -1,26 +1,21 @@
-export default class Modal {
-    constructor({name, 
-                 img, 
-                 type, 
-                 breed, 
-                 description,
-                 age,
-                 inoculations,
-                 diseases,
-                 parasites}) {
-        this.name = name;
-        this.img = img;
-        this.type = type;
-        this.breed = breed;
-        this.description = description;
-        this.age = age;
-        this.inoculations = inoculations;
-        this.diseases = diseases;
-        this.parasites = parasites;
+import Data from "../../assets/js/Data.js";
 
-        this.backLayer = this.createBackLayerNode();
+export default class Modal {
+    constructor() {
+        this.name = ``;
+        this.img = ``;
+        this.type = ``;
+        this.breed = ``;
+        this.description = ``;
+        this.age = ``;
+        this.inoculations = ``;
+        this.diseases = ``;
+        this.parasites = ``;
+
+        this.isOpen = false;
     }
 
+    //main methods
     createModalNodes() {
         this.modalWrapperNode = this.createElementNode(`div`, `modal-wrapper`);
 
@@ -74,6 +69,86 @@ export default class Modal {
         this.parametersNode.prepend(this.ageNode, this.inoculationsNode, this.diseasesNode, this.parasitesNode);
     }
 
+    modalHandler() {
+        document.addEventListener(`click`, (event) => {
+                let card;
+                let button;
+                let modalWrapper;
+
+                if (!this.isOpen) {
+                    card = event.target.closest(`.card`);
+                    if (card) {
+                        this.openModal(card);
+
+                        if (document.documentElement.clientWidth > 750) {
+                            document.body.style.paddingRight = `17px`;
+                        }
+                        document.body.style.overflow = `hidden`;
+                    }  
+
+                    
+                } else {
+                    button = event.target.closest(`.modal-container > .circleButton`)
+                    if (button) {
+                        this.closeModal();
+                        document.body.style.overflow = `auto`;
+                        document.body.style.paddingRight = `0px`;
+                    }
+
+                    modalWrapper = document.querySelector(`.modal-wrapper`)
+                    if (event.target == modalWrapper) {
+                        this.closeModal();
+                        
+                        if (document.documentElement.clientWidth > 750) {
+                            document.body.style.paddingRight = `0px`;
+                        }
+                        document.body.style.overflow = `auto`;
+                    }
+                }
+                
+        })
+    }
+
+    openModal(card) {
+        let name = card.firstElementChild.nextElementSibling.innerHTML;
+        let petObj = this.getPetObjFromJSON(name);
+        this.assignModalData(petObj);
+
+        this.createModalNodes();
+        this.assembleModalNodes();
+
+        this.isOpen = !this.isOpen;
+    }
+
+    closeModal() {
+        document.querySelector(`.modal-wrapper`).remove();
+        this.isOpen = !this.isOpen;
+    }
+
+    assignModalData(pet) {
+        this.name = pet.name;
+        this.img = pet.img;
+        this.type = pet.type;
+        this.breed = pet.breed;
+        this.description = pet.description;
+        this.age = pet.age;
+        this.inoculations = pet.inoculations;
+        this.diseases = pet.diseases;
+        this.parasites = pet.parasites;
+
+        this.backLayer = this.createBackLayerNode();
+    }
+
+    getPetObjFromJSON(name) {
+        let pet = null;
+        let data = new Data();
+        data.pullData();
+
+        pet = data.getPet(name)
+        return pet
+    }
+
+    //auxiliary methods
     createBackLayerNode() {
         let backLayer = this.createElementNode(`div`, `backLayer`);
         
