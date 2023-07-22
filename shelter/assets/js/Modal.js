@@ -1,6 +1,6 @@
-import Data from "../../assets/js/Data.js";
-
 export default class Modal {
+    petsDataObj;
+
     constructor() {
         this.name = ``;
         this.img = ``;
@@ -71,14 +71,14 @@ export default class Modal {
 
     modalHandler() {
         document.addEventListener(`click`, (event) => {
-                let card;
-                let button;
+                let currentCard;
+                let closeButton;
                 let modalWrapper;
 
                 if (!this.isOpen) {
-                    card = event.target.closest(`.card`);
-                    if (card) {
-                        this.openModal(card);
+                    currentCard = event.target.closest(`.card`);
+                    if (currentCard) {
+                        this.openModal(currentCard);
 
                         if (document.documentElement.clientWidth > 750) {
                             document.body.style.paddingRight = `17px`;
@@ -88,8 +88,8 @@ export default class Modal {
 
                     
                 } else {
-                    button = event.target.closest(`.modal-container > .circleButton`)
-                    if (button) {
+                    closeButton = event.target.closest(`.modal-container > .circleButton`)
+                    if (closeButton) {
                         this.closeModal();
                         document.body.style.overflow = `auto`;
                         document.body.style.paddingRight = `0px`;
@@ -111,7 +111,7 @@ export default class Modal {
 
     openModal(card) {
         let name = card.firstElementChild.nextElementSibling.innerHTML;
-        let petObj = this.getPetObjFromJSON(name);
+        let petObj = this.getPetObjByName(name);
         this.assignModalData(petObj);
 
         this.createModalNodes();
@@ -139,12 +139,8 @@ export default class Modal {
         this.backLayer = this.createBackLayerNode();
     }
 
-    getPetObjFromJSON(name) {
-        let pet = null;
-        let data = new Data();
-        data.pullData();
-
-        pet = data.getPet(name)
+    getPetObjByName(name) {
+        let pet = this.petsDataObj.getPet(name)
         return pet
     }
 
@@ -167,5 +163,9 @@ export default class Modal {
         elementNode.classList.add(...classes);
 
         return elementNode
+    }
+
+    getPetsData( petsDataObj ) {
+        this.petsDataObj = petsDataObj;
     }
 }
