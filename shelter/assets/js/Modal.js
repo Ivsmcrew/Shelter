@@ -82,6 +82,7 @@ export default class Modal {
 
                         if (document.documentElement.clientWidth > 750) {
                             document.body.style.paddingRight = `17px`;
+                            document.querySelector(`header`).style.paddingRight = `17px`;
                         }
                         document.body.style.overflow = `hidden`;
                     }  
@@ -93,6 +94,7 @@ export default class Modal {
                         this.closeModal();
                         document.body.style.overflow = `auto`;
                         document.body.style.paddingRight = `0px`;
+                        document.querySelector(`header`).style.paddingRight = `0px`;
                     }
 
                     modalWrapper = document.querySelector(`.modal-wrapper`)
@@ -101,6 +103,7 @@ export default class Modal {
                         
                         if (document.documentElement.clientWidth > 750) {
                             document.body.style.paddingRight = `0px`;
+                            document.querySelector(`header`).style.paddingRight = `0px`;
                         }
                         document.body.style.overflow = `auto`;
                     }
