@@ -446,6 +446,102 @@ p.small {
   color: #B2B2B2;
 }
 
+.blocksContainer {
+  translate: -990px;
+}
+@media screen and (max-width: 1280px) {
+  .blocksContainer {
+    translate: -580px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .blocksContainer {
+    translate: -270px;
+  }
+}
+
+@keyframes desktopSwipeL {
+  from {
+    translate: -990px;
+  }
+  to {
+    translate: -1980px;
+  }
+}
+@keyframes planSwipeL {
+  from {
+    translate: -580px;
+  }
+  to {
+    translate: -1160px;
+  }
+}
+@keyframes mobileSwipeL {
+  from {
+    translate: -270px;
+  }
+  to {
+    translate: -540px;
+  }
+}
+@keyframes desktopSwipeR {
+  from {
+    translate: -990px;
+  }
+  to {
+    translate: 0px;
+  }
+}
+@keyframes planSwipeR {
+  from {
+    translate: -580px;
+  }
+  to {
+    translate: 0px;
+  }
+}
+@keyframes mobileSwipeR {
+  from {
+    translate: -270px;
+  }
+  to {
+    translate: 0px;
+  }
+}
+.swipeLeft {
+  animation-name: desktopSwipeL;
+  animation-duration: 1s;
+}
+@media screen and (max-width: 1280px) {
+  .swipeLeft {
+    animation-name: planSwipeL;
+    animation-duration: 1s;
+  }
+}
+@media screen and (max-width: 768px) {
+  .swipeLeft {
+    animation-name: mobileSwipeL;
+    animation-duration: 1s;
+  }
+}
+
+.swipeRight {
+  animation-name: desktopSwipeR;
+  animation-duration: 1s;
+}
+@media screen and (max-width: 1280px) {
+  .swipeRight {
+    animation-name: planSwipeR;
+    animation-duration: 1s;
+  }
+}
+@media screen and (max-width: 768px) {
+  .swipeRight {
+    animation-name: mobileSwipeR;
+    animation-duration: 1s;
+  }
+}
+
 button.rotated {
   transform: rotateZ(180deg);
 }
@@ -946,7 +1042,7 @@ section.about .about p {
 
 section.pets {
   padding: 0px 40px;
-  width: 1200px;
+  max-width: 1200px;
   height: 877px;
   display: grid;
   justify-items: center;
@@ -956,29 +1052,96 @@ section.pets h3 {
   margin-top: 80px;
   text-align: center;
 }
-section.pets .slider {
-  height: 435px;
-  width: 100%;
+section.pets .sliderContainer {
+  width: 1200px;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
-section.pets .slider button.circleButton {
+section.pets .sliderContainer button.circleButton {
   background-color: transparent;
   border: 2px solid #F1CDB3;
   margin-right: -34px;
 }
-section.pets .slider button.circleButton:hover {
+section.pets .sliderContainer button.circleButton:hover {
   background-color: #FDDCC4;
   border-color: #FDDCC4;
 }
-section.pets .slider button.circleButton:active {
+section.pets .sliderContainer button.circleButton:active {
   background-color: #F1CDB3;
   border-color: #F1CDB3;
 }
-section.pets .slider button.rotated {
+@media screen and (max-width: 768px) {
+  section.pets .sliderContainer button.circleButton {
+    order: 2;
+  }
+}
+section.pets .sliderContainer button.rotated {
   margin-right: 0;
   margin-left: -34px;
+}
+@media screen and (max-width: 768px) {
+  section.pets .sliderContainer button.rotated {
+    order: 3;
+  }
+}
+@media screen and (max-width: 1280px) {
+  section.pets .sliderContainer {
+    width: 708px;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.pets .sliderContainer {
+    width: 270px;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+}
+section.pets .sliderWrapper {
+  overflow: hidden;
+  display: flex;
+  flex: 0 0 990px;
+  flex-wrap: nowrap;
+}
+section.pets .sliderWrapper .blocksContainer {
+  display: flex;
+  flex: 0 0 2430px;
+}
+@media screen and (max-width: 1280px) {
+  section.pets .sliderWrapper .blocksContainer {
+    flex: 0 0 1740px;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.pets .sliderWrapper .blocksContainer {
+    flex: 0 0 810px;
+  }
+}
+@media screen and (max-width: 1280px) {
+  section.pets .sliderWrapper {
+    flex: 0 0 580px;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.pets .sliderWrapper {
+    flex: 0 0 270px;
+  }
+}
+section.pets .sliderBlock {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex: 0 0 990px;
+}
+@media screen and (max-width: 1280px) {
+  section.pets .sliderBlock {
+    flex: 0 0 580px;
+  }
+}
+@media screen and (max-width: 768px) {
+  section.pets .sliderBlock {
+    flex: 0 0 270px;
+  }
 }
 section.pets form {
   margin-bottom: 100px;

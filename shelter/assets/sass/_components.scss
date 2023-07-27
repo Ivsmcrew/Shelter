@@ -51,6 +51,91 @@ p.small{
     text-align: left;
     color: $color-dark-m;
 }
+.blocksContainer{
+    translate: -990px;
+
+    @media screen and (max-width:1280px) {
+        translate: -580px;
+    }
+    @media screen and (max-width:768px) {
+        translate: -270px;
+    }
+}
+
+@keyframes desktopSwipeL {
+    from {
+        translate: -990px;
+    }
+    to {
+        translate: -1980px;
+    }
+}
+@keyframes planSwipeL {
+    from {
+        translate: -580px;
+    }
+    to {
+        translate: -1160px;
+    }
+}
+@keyframes mobileSwipeL {
+    from {
+        translate: -270px;
+    }
+    to {
+        translate: -540px;
+    }
+}
+@keyframes desktopSwipeR {
+    from {
+        translate: -990px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+@keyframes planSwipeR {
+    from {
+        translate: -580px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+@keyframes mobileSwipeR {
+    from {
+        translate: -270px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+.swipeLeft{
+    animation-name: desktopSwipeL;
+    animation-duration: 1s;
+
+    @media screen and (max-width:1280px) {
+        animation-name: planSwipeL;
+        animation-duration: 1s;
+    }
+    @media screen and (max-width:768px) {
+        animation-name: mobileSwipeL;
+        animation-duration: 1s;
+    }
+}
+.swipeRight{
+    animation-name: desktopSwipeR;
+    animation-duration: 1s;
+
+    @media screen and (max-width:1280px) {
+        animation-name: planSwipeR;
+        animation-duration: 1s;
+    }
+    @media screen and (max-width:768px) {
+        animation-name: mobileSwipeR;
+        animation-duration: 1s;
+    }
+}
 
 //common components
 button.rotated{
