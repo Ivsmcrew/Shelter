@@ -181,7 +181,7 @@ section.about{
 }
 section.pets{
     padding: 0px 40px;
-    width: 1200px;
+    max-width: 1200px;
     height: 877px;
     display: grid;
     justify-items: center;
@@ -192,9 +192,8 @@ section.pets{
         text-align: center;
     }
 
-    .slider{
-        height: 435px;
-        width: 100%;
+    .sliderContainer{
+        width:1200px;
         display: flex;
         align-items: center;
         justify-content: space-between;
@@ -208,10 +207,67 @@ section.pets{
             &:active{
                 @include circleButton_active
             }
+
+            @media screen and (max-width:768px) {
+                order: 2;
+            }
         }
         button.rotated{
             margin-right: 0;
             margin-left: -34px;
+
+            @media screen and (max-width:768px) {
+                order: 3;
+            }
+        }
+
+        @media screen and (max-width:1280px) {
+            width: 708px;
+        }
+        @media screen and (max-width:768px) {
+            width: 270px;
+            flex-wrap: wrap;
+            justify-content: space-around;
+        }
+    }
+
+    .sliderWrapper{
+        overflow: hidden;
+        display: flex;
+        flex: 0 0 990px;
+        flex-wrap: nowrap;
+
+        .blocksContainer{
+            display: flex;
+            flex: 0 0 2430px;
+
+            @media screen and (max-width:1280px) {
+                flex: 0 0 1740px;
+            }
+            @media screen and (max-width:768px) {
+                flex: 0 0 810px;
+            }
+        }
+
+        @media screen and (max-width:1280px) {
+            flex: 0 0 580px;
+        }
+        @media screen and (max-width:768px) {
+            flex: 0 0 270px;
+        }
+    }
+
+    .sliderBlock{
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        flex: 0 0 990px;
+
+        @media screen and (max-width:1280px) {
+            flex: 0 0 580px;
+        }
+        @media screen and (max-width:768px) {
+            flex: 0 0 270px;
         }
     }
 

@@ -51,16 +51,91 @@ p.small{
     text-align: left;
     color: $color-dark-m;
 }
-// a{
-//     @include arialNormalNormal;
-//     font-size: 15px;
-//     line-height: 160%;
-//     letter-spacing: 0.01rem;
-//     color:$color-dark-s;
-//     height: 24px;
-// }
+.blocksContainer{
+    translate: -990px;
 
+    @media screen and (max-width:1280px) {
+        translate: -580px;
+    }
+    @media screen and (max-width:768px) {
+        translate: -270px;
+    }
+}
 
+@keyframes desktopSwipeL {
+    from {
+        translate: -990px;
+    }
+    to {
+        translate: -1980px;
+    }
+}
+@keyframes planSwipeL {
+    from {
+        translate: -580px;
+    }
+    to {
+        translate: -1160px;
+    }
+}
+@keyframes mobileSwipeL {
+    from {
+        translate: -270px;
+    }
+    to {
+        translate: -540px;
+    }
+}
+@keyframes desktopSwipeR {
+    from {
+        translate: -990px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+@keyframes planSwipeR {
+    from {
+        translate: -580px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+@keyframes mobileSwipeR {
+    from {
+        translate: -270px;
+    }
+    to {
+        translate: 0px;
+    }
+}
+.swipeLeft{
+    animation-name: desktopSwipeL;
+    animation-duration: 1s;
+
+    @media screen and (max-width:1280px) {
+        animation-name: planSwipeL;
+        animation-duration: 1s;
+    }
+    @media screen and (max-width:768px) {
+        animation-name: mobileSwipeL;
+        animation-duration: 1s;
+    }
+}
+.swipeRight{
+    animation-name: desktopSwipeR;
+    animation-duration: 1s;
+
+    @media screen and (max-width:1280px) {
+        animation-name: planSwipeR;
+        animation-duration: 1s;
+    }
+    @media screen and (max-width:768px) {
+        animation-name: mobileSwipeR;
+        animation-duration: 1s;
+    }
+}
 
 //common components
 button.rotated{
@@ -134,7 +209,6 @@ button.secondary{
     border: 2px solid $color-primary-light;
 }
 
-
 //big components
 article.card{
     display: grid;
@@ -165,3 +239,90 @@ article.card{
     }
 }
 
+
+.modal-wrapper{
+    position:fixed;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    top:0px;
+    left:0px;
+    width:100vw;
+    height:100vh;
+    background-color: rgba(41, 41, 41, 0.60);
+    z-index: 222;
+}
+.modal-container{
+    width: 682px;
+    
+    .circleButton{
+        @include circleButton_normal;
+        margin-left: auto;
+
+        &:hover{
+            @include circleButton_hover;
+        }
+        &:active{
+            @include circleButton_active;
+        }
+    }
+
+    .modalWindow{
+        width: 630px;
+        border-radius: 0.9rem;
+        background-color: $color-light-s;
+        display: flex;
+
+        .modalImage{
+            width: 350px;
+            height: 350px;
+            border-radius: 0.9rem;
+        }
+        .content{
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            padding: 10px 9px 15px 11px;
+            
+            .typeAndBreed{
+                font-size: 1.8rem;
+            }
+            .description{
+                font-size: 1.3rem;
+                letter-spacing: 0.78px;
+            }
+            .parameters{
+                padding-left: 2rem;
+                list-style-type: disc;
+                font-size: 1.8rem;
+            }
+        }
+    }
+
+    @media screen and (max-width: 767px) {
+        width: 270px;
+
+        .circleButton{
+            &:hover{
+                -webkit-user-select: none;
+                -webkit-touch-callout: none;  
+            }
+        }
+
+        .modalWindow{
+            width: 240px;
+            height: 341px;
+
+            .modalImage{
+                display: none;
+            }
+            .content{
+                padding: 9px 9px 9px 9px;
+                .name, .typeAndBreed{
+                    align-self: center;
+                }
+                
+            }
+        }
+    }
+}

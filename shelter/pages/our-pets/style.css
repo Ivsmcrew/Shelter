@@ -517,6 +517,87 @@ article.card:hover > .longButton {
   border: 2px solid #FDDCC4;
 }
 
+.modal-wrapper {
+  position: fixed;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  top: 0px;
+  left: 0px;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(41, 41, 41, 0.6);
+  z-index: 222;
+}
+
+.modal-container {
+  width: 682px;
+}
+.modal-container .circleButton {
+  background-color: transparent;
+  border: 2px solid #F1CDB3;
+  margin-left: auto;
+}
+.modal-container .circleButton:hover {
+  background-color: #FDDCC4;
+  border-color: #FDDCC4;
+}
+.modal-container .circleButton:active {
+  background-color: #F1CDB3;
+  border-color: #F1CDB3;
+}
+.modal-container .modalWindow {
+  width: 630px;
+  border-radius: 0.9rem;
+  background-color: #FAFAFA;
+  display: flex;
+}
+.modal-container .modalWindow .modalImage {
+  width: 350px;
+  height: 350px;
+  border-radius: 0.9rem;
+}
+.modal-container .modalWindow .content {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  padding: 10px 9px 15px 11px;
+}
+.modal-container .modalWindow .content .typeAndBreed {
+  font-size: 1.8rem;
+}
+.modal-container .modalWindow .content .description {
+  font-size: 1.3rem;
+  letter-spacing: 0.78px;
+}
+.modal-container .modalWindow .content .parameters {
+  padding-left: 2rem;
+  list-style-type: disc;
+  font-size: 1.8rem;
+}
+@media screen and (max-width: 767px) {
+  .modal-container {
+    width: 270px;
+  }
+  .modal-container .circleButton:hover {
+    -webkit-user-select: none;
+    -webkit-touch-callout: none;
+  }
+  .modal-container .modalWindow {
+    width: 240px;
+    height: 341px;
+  }
+  .modal-container .modalWindow .modalImage {
+    display: none;
+  }
+  .modal-container .modalWindow .content {
+    padding: 9px 9px 9px 9px;
+  }
+  .modal-container .modalWindow .content .name, .modal-container .modalWindow .content .typeAndBreed {
+    align-self: center;
+  }
+}
+
 /**********HEADER*************
 ******************************/
 /***********Footer************
@@ -564,17 +645,25 @@ header a p.shelter {
   color: #FFFFFF;
   margin-left: 4px;
 }
-header .menu {
+header .backLayer {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+header .menu-desktop {
   margin-left: auto;
 }
-header .menu ul.menu-list {
+header .menu-desktop ul.menu-list {
   display: flex;
   align-items: start;
   justify-content: space-between;
   width: 443px;
   height: 27px;
 }
-header .menu ul.menu-list a {
+header .menu-desktop ul.menu-list a {
   font: 400 normal 1.6rem "Arial", sans-serif;
   font-size: 15px;
   line-height: 160%;
@@ -584,21 +673,66 @@ header .menu ul.menu-list a {
   transition-property: color, border-bottom;
   transition-duration: 0.3s, 0.1s;
 }
-header .menu ul.menu-list a:hover {
+header .menu-desktop ul.menu-list a:hover {
   color: #FAFAFA;
 }
-header .menu ul.menu-list a:active {
+header .menu-desktop ul.menu-list a:active {
   border-bottom: 3px solid #F1CDB3;
 }
-header .menu ul.menu-list a.activeMain {
+header .menu-desktop ul.menu-list a.activeMain {
   color: #FAFAFA;
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
 }
-header .menu ul.menu-list a.activePets {
+header .menu-desktop ul.menu-list a.activePets {
   color: #292929;
   border-bottom: 3px solid #F1CDB3;
   cursor: default;
+}
+header .menu-mobile {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  right: 0px;
+  top: 0px;
+  bottom: 0px;
+  width: 320px;
+  background-color: #292929;
+  transform: translate(100%);
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+header .menu-mobile ul.menu-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  width: 243px;
+  height: 327px;
+}
+header .menu-mobile ul.menu-list a {
+  font: 400 normal 1.6rem "Arial", sans-serif;
+  font-size: 28px;
+  line-height: 160%;
+  letter-spacing: 0.01rem;
+  color: #CDCDCD;
+  height: auto;
+  transition-property: color, border-bottom;
+  transition-duration: 0.3s, 0.1s;
+}
+header .menu-mobile ul.menu-list a.activeMain {
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+  cursor: default;
+}
+header .menu-mobile ul.menu-list a.activePets {
+  color: #FAFAFA;
+  border-bottom: 3px solid #F1CDB3;
+  cursor: default;
+}
+header .menu-mobile_opened {
+  transform: translate(0%);
 }
 header .burger {
   display: none;
@@ -607,6 +741,11 @@ header .burger {
   align-items: center;
   background-image: url("../../assets/icons/burger.png");
   z-index: 3;
+  transition-property: transform;
+  transition-duration: 0.2s;
+}
+header .burger_opened {
+  transform: rotate(90deg);
 }
 @media screen and (max-width: 992px) {
   header {
@@ -617,7 +756,7 @@ header .burger {
   header {
     margin: 0 20px;
   }
-  header .menu {
+  header .menu-desktop {
     display: none;
   }
   header .burger {
@@ -631,10 +770,10 @@ header a p.cozy {
 header a p.shelter {
   color: #292929;
 }
-header nav.menu ul.menu-list a {
+header nav.menu-desktop ul.menu-list a {
   color: #545454;
 }
-header nav.menu ul.menu-list a:hover {
+header nav.menu-desktop ul.menu-list a:hover {
   color: #292929;
 }
 header .burger {
