@@ -105,7 +105,7 @@ export default class Slider{
             this.MEMORY_VISIBLE_CARDS = this.MEMORY_HIDING_CARDS.slice(0);
             this.MEMORY_HIDING_CARDS = temporaryVault.slice(0);
         } else {
-            //clear reduntant cards
+            //clear useless cards
             for (let i = 0; i < this.SLIDER_BLOCKS_QUANTITY; i++) {
                 if (this.sliderBlocks[i].style.order == 3) {
                     this.sliderBlocks[i].innerHTML = ``;
