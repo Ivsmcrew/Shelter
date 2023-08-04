@@ -10,7 +10,7 @@ This project was the first one in which I used Javascript. It gave me experience
 - ES6+ features( arrow funcs, modules, classes, etc )
 - working with DOM API
 
-It was really interesting projects with new kinds of difficults. Failed to fully adhere to the BEM system, which is why there is a little mess in styles and scripts.
+It was really interesting project with new kinds of difficults. Failed to fully adhere to the BEM system, which is why there is a little mess in styles and scripts.
 	
 <sub> *Screenshots of the landing:* </sub>
 ![Screenshot of the page](/shelter/assets/images/shelter2.PNG)
