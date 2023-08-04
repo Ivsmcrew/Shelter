@@ -5,7 +5,7 @@
 This project was the first one in which I used Javascript. It gave me experience at the following points: 
 
 - Semantic HTML, prepros SCSS
-- Structuring of a project, separating a code into defferent files( preconditions for BEM )
+- Structuring of a project, separating a code into different files( preconditions for BEM )
 - Using of npm( npm-run, node_modules, package.json)
 - ES6+ features( arrow funcs, modules, classes, etc )
 - working with DOM API
